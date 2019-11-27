@@ -1,1 +1,24 @@
-<em>Employee details</em>
+<table>
+    <tbody ng-repeat="det in details">
+        <tr>
+            <th>Employee ID:</th>
+            <td>{{ det.empno }}</td>
+        </tr>
+        <tr>
+            <th>Name:</th>
+            <td>{{ det.name }}</td>
+        </tr>
+        <tr>
+            <th>Gender:</th>
+            <td>{{ det.gender }}</td>
+        </tr>
+        <tr>
+            <th>Age:</th>
+            <td>{{ det.Age }}</td>
+        </tr>
+        <tr>
+            <th>Role:</th>
+            <td>{{ det.Role }}</td>
+        </tr>
+    </tbody>
+</table>
