@@ -1,7 +1,30 @@
 
+<!--
 <ul ng-repeat="employee in someEmp">
 <li> <a ui-sref="employeeDetail({empno: {{ employee.empno }} })"> {{ employee.empno }} </a> </li>
 <li> {{ employee.name }}</li>
 <li> {{ employee.gender }}</li>
 <li> {{ employee.Age }}</li>
 </ul>
+-->
+
+Search employee : <input type="text" placeholder="Search Employee" ng-model="searchEmp"/>
+<br/>
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employee in someEmp | filter:searchEmp">
+            <td> <a ui-sref="employeeDetail({empno: {{ employee.empno }} })">{{ employee.empno }}</a></td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.Age }} </td>
+        </tr>
+    </tbody>
+</table>
