@@ -1,0 +1,7 @@
+
+<ul ng-repeat="employee in someEmp">
+<li> <a ui-sref="employeeDetail({empno: {{ employee.empno }} })"> {{ employee.empno }} </a> </li>
+<li> {{ employee.name }}</li>
+<li> {{ employee.gender }}</li>
+<li> {{ employee.Age }}</li>
+</ul>
