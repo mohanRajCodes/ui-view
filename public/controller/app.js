@@ -10,7 +10,7 @@ $stateProvider
   url:'/employee',
   views:{
     'emp-header':{
-        template:'<em>Employee header</em>'
+        template:'<center>Employee Information</center>'
     },
     'emp-list':{
         controller: 'employeeListCtrl',
@@ -22,10 +22,11 @@ $stateProvider
   url:'/employee/:empno',
   views:{
     'emp-header':{
-        template:'<em>Employee header</em>'
+        template:'<center>Employee Information</center>'
     },
     'emp-details':{
-        templateUrl:'/public/view/template/EmployeeDetails.html'
+        templateUrl:'/public/view/template/EmployeeDetails.html',
+        controller: 'employeeDetailsCtrl'
     }
   }
 });
@@ -36,8 +37,23 @@ $urlRouterProvider.otherwise("/");
 
 myApp.controller("employeeListCtrl",function($scope){
 
-$scope.someEmp = [{empno:1,name:"Sankaran",gender:"Male",Age:"62"},
-                  {empno:2,name:"Karpagam",gender:"Female",Age:"47"},
+$scope.someEmp = [{empno:1,name:"Kohli",gender:"Male",Age:"31"},
+                  {empno:2,name:"Rohit Sharma",gender:"Male",Age:"32"},
+                  {empno:3,name:"Shreyas Iyer",gender:"Male",Age:"24"},
+                  {empno:4,name:"Smriti Mandana",gender:"Female",Age:"21"},
+                  {empno:5,name:"Mithali Raj",gender:"Female",Age:"36"}
                 ];
+
+});
+
+myApp.controller("employeeDetailsCtrl",function(employeeDetails,$scope,$stateParams){
+
+var empno = $stateParams.empno;
+
+//console.log(empno);
+
+employeeDetails.getEmployeeDetails().then(function(response){
+    $scope.details = response.data;
+})
 
 });
